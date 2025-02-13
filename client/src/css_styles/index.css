@@ -16,9 +16,36 @@ html {
 .App {
     width: 100%;
     min-height: 100vh;
+    background-image: url('../assests/icon_img.avif');
+
 }
 
 /* Start Main Classes */
+.error_ele {
+    padding: 2px;
+    font-size: 10px;
+    color: white;
+    width: 100%;
+}
+.error_ele.showMessage {
+    border: 2px solid rgb(138, 16, 16);
+    background-color: red;
+    visibility: visible !important;
+}
+.error_ele.valideMessage {
+    border: 2px solid rgb(45, 94, 25);
+    background-color: green;
+    visibility: visible !important;
+}
+.sending {
+    background-color: green !important;
+}
+.error_border {
+    border: 2px solid rgb(138, 16, 16) !important;
+}
+.valid_border {
+    border: 2px solid rgb(45, 94, 25) !important;
+}
 
 
 /* End Main Classes */
