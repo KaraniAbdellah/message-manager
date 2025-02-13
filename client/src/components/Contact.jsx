@@ -10,12 +10,14 @@ import { faCoffee, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Contact() {
+
     return (
         <div className='contact bg-gray-200 rounded-sm flex justify-between items-center
         lg:w-[80%] md:w-[100%] sm:w-[100%] w-[100%]
         lg:flex-row md:flex-col sm:flex-col flex-col
         pt-20 lg:p-4'>
-            <div className="image mb-5 text-center md:w-full sm:w-full lg:w-1/4 flex justify-center items-center flex-col md:relative md:after:bottom-0 md:after:left-0 md:after:bg-zinc-700 md:after:w-4/5 md:after:h-0.5 sm:after:block md:after:block after:hidden">
+            <div className="image mb-5 text-center md:w-[100%] sm:w-[100%] lg:w-[25%]  flex justify-center items-center flex-col
+            ">
                 <div className=''></div>
                 <img src={Logo} className="w-[150px] animate-bounce" alt="Logo" />
                 <h4 className='text-sm text-zinc-700'>Feedbacks ...</h4>
@@ -40,8 +42,10 @@ export default function Contact() {
                     md:w-[100%] sm:w-[100%] lg:w-[50%]  w-[100%] mb-3'>
                         <span className='mr-2'>Send</span>
                     </button>
-                    <button className='p-2 text-white border-b-4 border-yellow-700 hover:bg-yellow-700 transition-all rounded-sm bg-yellow-500 
-                    md:w-[100%] sm:w-[100%] lg:w-[50%]  w-[100%]'>Go As Admin</button>
+                    <Link to="/feedback">
+                        <button className='p-2 text-white border-b-4 border-yellow-700 hover:bg-yellow-700 transition-all rounded-sm bg-yellow-500 
+                        md:w-[100%] sm:w-[100%] lg:w-[50%]  w-[100%]'>Go As Admin</button>
+                    </Link>
                 </div>
             </div>
         </div>
