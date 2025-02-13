@@ -5,26 +5,13 @@ import {Routes, Route, Link} from "react-router-dom";
 import "./css_styles/index.css";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import SocialMedia from "./components/SocialMedia";
 
 function App() {
   return (
-    <div className="App">
-        <Link to="/contact">
-            <button className="bg-red-200 p-5 m-5">go to contact</button>
-        </Link>
-
-        <Routes>
-          <Route path="/contact" element={<Contact></Contact>}>
-
-          </Route>
-          <Route path="/" element={
-            <>
-                <Home />
-                <Home></Home>
-            </>
-          }>
-          </Route>
-        </Routes>
+    <div className="App flex justify-center items-center relative p-4">
+        <Contact></Contact>
+        <SocialMedia></SocialMedia>
     </div>
   );
 }
