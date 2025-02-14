@@ -18,7 +18,7 @@ function App() {
                     <SocialMedia></SocialMedia>
                 </>
             }></Route>
-            <Route path="/feedback" element={<Feedback></Feedback>}>
+            <Route path="/feedbacks" element={<Feedback></Feedback>}>
 
             </Route>
         </Routes>
