@@ -27,6 +27,8 @@ export default function Contact() {
         let errors_messages = ["first name", "last name", "email", "phone number", "message"];
         let valid_messages = ["first name", "last name", "email", "phone number", "message"];
         let check = 1;
+
+        // Loop Thought The Element And Check If The Inputs Valid
         for (let i = 0; i < group_ele.length; i++) {
             if (group_ele[i].value === '') {
                 let error_ele = group_ele[i].nextElementSibling;
@@ -42,6 +44,7 @@ export default function Contact() {
             }
         }
 
+        // Check If All Data Valid
         if (check === 1) {
             let send_btn = document.querySelector(".send_btn");
             send_btn.textContent = "sending...";
@@ -66,23 +69,39 @@ export default function Contact() {
                 email: email.value,
                 phone_number: message.value
             }
-            console.log(SendingData);
+            // Increment The id
+            let LocalId = window.localStorage.getItem("id");
+            console.log(LocalId);
+            if (LocalId == null) {
+                window.localStorage.setItem("id", id);
+            } else {
+                window.localStorage.setItem("id", Number(LocalId) + 1);
+            }
+            setId((id) => id + 1);
             // Send Data To Database With Axios
             try {
                 axios.post("http://127.0.0.1:3001/postUser", SendingData)
                 .then((res) => {
-                    console.log(res);
                     console.log(res.data);
                 }).catch((err) => {
-                    console.log("❌ Can Not Send This Message" + err);
+                    console.log("❌ Can Not Send This Message " + err);
+                    setTimeout(() => {
+                        error_sending_ele.classList.remove("block");
+                        error_sending_ele.classList.add("hidden");
+                    }, 2000);
+                    error_sending_ele.classList.add("block");
+                    error_sending_ele.classList.remove("hidden");
                 });
-            } catch (error) {
-                error_sending_ele.classList.add("block");
-                error_sending_ele.classList.remove("hidden");
+            } catch (err) {
+                console.log("❌ Can Not Send This Message " + err);
             }
         }
     }
     useEffect(() => {
+        let LocalId = window.localStorage.getItem("id");
+        if (id === 0) {
+            setId(Number(LocalId));
+        }
         AOS.init();
     });
     return (
