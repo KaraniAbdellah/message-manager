@@ -18,13 +18,27 @@ app.get("/getUsers", async (req, res) => {
         console.log(users);
         console.log("✅ Success Get User");
     } catch (error) {
+        res.status(500).send({message: "❌ Failed Getting User"});
         console.log("❌ Failed Getting User" + error);
     }
 });
 
-app.delete("/deleteUser/:id", (req, res) => {
+app.delete("/deleteUser/:id", async (req, res) => {
     console.log("Request Come From Axios for Deleting Users");
-    console.log(req.body);
+    try {
+        const user = await User.findByIdAndDelete(req.body.id);
+        if (!user) {
+            console.log("Unfound User");
+            return res.status(200).send({message: "❌ Unfound User"});
+        }
+        else {
+            console.log("✅ Success Delete User");
+            return res.status(200).send({message: "✅ Success Delete User"});
+        }
+    } catch (error) {
+        res.status(500).send({message: "❌ Failed Deleting User"});
+        console.log("❌ Failed Deleting User" + error);
+    }
 });
 
 app.post("/postUser", async (req, res) => {
@@ -37,6 +51,7 @@ app.post("/postUser", async (req, res) => {
         res.status(201).json(user);
         console.log("✅ Success Adding User");
     } catch (error) {
+        res.status(500).send({message: "❌ Failed Adding User"});
         console.log("❌ Failed Adding User" + error);
     }
 });
