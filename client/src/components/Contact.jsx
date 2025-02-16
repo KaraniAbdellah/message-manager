@@ -60,14 +60,15 @@ export default function Contact() {
                     group_ele[i].classList.remove("error_border");
                     group_ele[i].classList.remove("valid_border");
                 }
-            }, 2000);
+            }, 1000);
 
             // Send The Data With Axios
             const SendingData = {
                 id: id,
                 full_name: fname.value + lname.value,
                 email: email.value,
-                phone_number: message.value
+                phone_number: phone_number.value,
+                message: message.value
             }
             // Increment The id
             let LocalId = window.localStorage.getItem("id");
