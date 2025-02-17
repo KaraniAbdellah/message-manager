@@ -28,7 +28,7 @@ is a project that collects user feedback and saves it in a database for easy man
 <img src="docs_imgs/feedback.png" alt="image2">
 
 
-
+**made with love by <a href="https://www.linkedin.com/in/abdellah-karani-965928294/">abdellah karani</a>**
 
 
 
