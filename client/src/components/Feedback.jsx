@@ -104,7 +104,7 @@ export default function Feedback() {
                 <button onClick={() => handleGetAllUsers()} className='p-2 my-2 text-white border-b-4 border-yellow-700 hover:bg-yellow-700
                     transition-all rounded-sm bg-yellow-500 mr-2'>Get All Users</button>
                 <Link to="/">
-                    <button className='p-2 my-2 text-white border-b-4 border-gray-900 hover:bg-gray-800
+                    <button className='p-2 my-2 text-white border-b-4 border-gray-900 hover:bg-gray-900
                     transition-all rounded-sm bg-gray-700'>Go To Home</button>
                 </Link>
             </div>
