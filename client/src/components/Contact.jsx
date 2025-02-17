@@ -14,7 +14,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Contact() {
-    const [id, setId] = useState(0);
     const handleSending = () => {
         let fname = document.querySelector("input.fname");
         let lname = document.querySelector("input.lname");
@@ -64,21 +63,11 @@ export default function Contact() {
 
             // Send The Data With Axios
             const SendingData = {
-                id: id,
                 full_name: fname.value + lname.value,
                 email: email.value,
                 phone_number: phone_number.value,
                 message: message.value
             }
-            // Increment The id
-            let LocalId = window.localStorage.getItem("id");
-            console.log(LocalId);
-            if (LocalId == null) {
-                window.localStorage.setItem("id", id);
-            } else {
-                window.localStorage.setItem("id", Number(LocalId) + 1);
-            }
-            setId((id) => id + 1);
             // Send Data To Database With Axios
             try {
                 axios.post("http://127.0.0.1:3001/postUser", SendingData)
@@ -99,14 +88,11 @@ export default function Contact() {
         }
     }
     useEffect(() => {
-        let LocalId = window.localStorage.getItem("id");
-        if (id === 0) {
-            setId(Number(LocalId));
-        }
         AOS.init();
     });
+
     return (
-        <div className='contact bg-gray-200 rounded-sm flex justify-between items-center
+        <div className='contact bg-zinc-800 flex rounded-sm items-center
         lg:w-[80%] md:w-[100%] sm:w-[100%] w-[100%]
         lg:flex-row md:flex-col sm:flex-col flex-col
         pt-20 lg:p-4'>
@@ -114,9 +100,9 @@ export default function Contact() {
             ">
                 <div className=''></div>
                 <img src={Logo} className="w-[150px] animate-bounce" alt="Logo" />
-                <h4 className='text-sm text-zinc-700'>Feedbacks ...</h4>
+                <h4 className='text-sm text-white text-center'>Feedbacks</h4>
             </div> 
-            <div className="contact_info relative after:absolute after:bg-zinc-800
+            <div className="contact_info relative after:absolute after:bg-white
                 after:w-[2px] after:h-[100%] after:top-0 after:left-[-40px] w-[100%] lg:w-[70%] md:w-[100%] sm:w-[100%] p-3">
                 <div className="error_sending text-red-800 hidden">can not send this message</div>
                 <div className="inputs">

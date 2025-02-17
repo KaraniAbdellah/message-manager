@@ -4,10 +4,6 @@ import mongoose from "mongoose";
 
 // Create New Schema
 const User_Schema = new mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
     full_name: {
         type: String,
         required: true
